@@ -46,10 +46,10 @@
     <script type="text/javascript">
 		$(window).load(function(){
 		  	$(window).scroll(function() {
-			    var scrollHeight = $(window).scrollTop(), 
-			    	bodyHeight = $('body').height(), 
-			    	windowHeight = $(window).height();
-			    var totalScroll = (scrollHeight / (bodyHeight - windowHeight)) * 100;
+			    var scrollHeight = $(window).scrollTop(),		//滚动高度
+			    	bodyHeight = $('body').height(),			//页面body高度
+			    	windowHeight = $(window).height();			//窗口可视区域高度
+			    var totalScroll = (scrollHeight / (bodyHeight - windowHeight)) * 100;	//进度百分比
 			    console.log("total scroll:" + totalScroll);
 			    $(".progressBar").css("width",totalScroll + "%");
 		  	});

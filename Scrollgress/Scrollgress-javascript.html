@@ -45,10 +45,10 @@
     <script type="text/javascript">
 		window.onload = function(){
 			window.onscroll = function(){
-				var scrollHeight = document.body.scrollTop,
-					bodyHeight = document.body.clientHeight,
-					windowHeight = window.innerHeight;
-			    var totalScroll = (scrollHeight / (bodyHeight - windowHeight)) * 100;
+				var scrollHeight = document.body.scrollTop,		//滚动高度
+					bodyHeight = document.body.clientHeight,	//页面body高度
+					windowHeight = window.innerHeight;			//窗口可视区域高度
+			    var totalScroll = (scrollHeight / (bodyHeight - windowHeight)) * 100;	//进度百分比
 			    console.log("total scroll:" + totalScroll);
 			    document.getElementsByClassName("progressBar")[0].style.width = totalScroll + "%";
 			};
