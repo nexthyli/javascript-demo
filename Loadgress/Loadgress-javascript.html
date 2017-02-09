@@ -1,0 +1,81 @@
+<!Doctype html>
+<html>
+<head>
+    <title>loading bar - Loadgress with javascript</title>
+    <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+    <style>
+        .loadingContainer {
+            z-index: 99999;
+            width: 100%;
+        }
+        .loadingBar {
+            width: 100%;
+            height: 5px;
+            background: #FF9F15;
+        }
+        @keyframes mymove
+		{
+			from {
+				width: 0;
+			}
+			to {
+				width: 100%;
+			}
+		}
+		@-webkit-keyframes mymove /*Safari and Chrome*/
+		{
+			from {
+				width: 0;
+			}
+			to {
+				width: 100%;
+			}
+		}
+		@keyframes fadeout
+		{
+  			from {
+				opacity: 100;
+  				filter: alpha(opacity=100);
+			}
+			to {
+				opacity: 0;
+  				filter: alpha(opacity=0);
+			}
+		}
+		@-webkit-keyframes fadeout /*Safari and Chrome*/
+		{
+  			from {
+				opacity: 100;
+  				filter: alpha(opacity=100);
+			}
+			to {
+				opacity: 0;
+  				filter: alpha(opacity=0);
+			}
+		}
+    </style>
+</head>
+<body>
+    <div class="loadingContainer">
+    	<div class="loadingBar"></div>
+    </div>
+    <script type="text/javascript">
+		window.onload = function(){
+			var loadingBar = document.getElementsByClassName("loadingBar")[0];
+			//宽度进度增长动画
+			loadingBar.style.animation = "mymove 800ms";
+			loadingBar.style["-webkit-animation"] = "mymove 800ms";
+			setTimeout(function(){
+				//进度条淡出动画
+				loadingBar.style.animation = "fadeout 500ms";
+				loadingBar.style["-webkit-animation"] = "fadeout 500ms";
+				setTimeout(function(){
+					//进度条消失
+					loadingBar.style.display = "none";
+				},500);
+			},800);
+		};
+    </script>
+</body>
+
+</html>
